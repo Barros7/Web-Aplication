@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin:0;
+}
+body {
+    background-image: url("./assets/background-car.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.95;
+}
+
+.container{
+    background-color: rgba(12, 10, 10, 10);
+    border-radius: 10px;
+    color: white;
+    margin-top: 10%;
+    padding: 5% 2% 1% 2%;
+    width: 30%;
+}
+
+.btn{
+    margin: 0 25%;
+    width: 50%;
+}
+
+
