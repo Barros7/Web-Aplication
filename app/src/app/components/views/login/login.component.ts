@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestLogin } from 'src/app/resources/models/login/RequestLogin';
+import { ResponseLogin } from 'src/app/resources/models/login/ResponseLogin';
 import { LoginService } from 'src/app/resources/services/login/login.service';
 
 @Component({

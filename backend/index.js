@@ -1,18 +1,14 @@
 //const session  = require('express-session');  //Include express-session
 const bodyParser = require('body-parser');      //Include body-parser express
 //const bcrypt   = require('bcryptjs');         //Include bcryptjs
-const mongoose   = require('mongoose');         //Include mongoose express
 const express    = require('express');          //Include framework express
-//const path     = require('path');             //Include path
+//const path     = require('path');   
+const cors = require('cors')                          //Include path
 const port       = 3000;                        //Declaration port
 
-//import models from models folder
-require("./models/User");
-require("./models/Car");
-const User = mongoose.model('user');
-const Car = mongoose.model('car');
+//const mongoose = require("./database/database");  //import database connection from database folder
 
-const app = express();
+const mongoose   = require('mongoose');         //Include mongoose express
 
 //Database connection
 mongoose.connect('mongodb://127.0.0.1:27017/jjmDB', {
@@ -24,6 +20,15 @@ mongoose.connect('mongodb://127.0.0.1:27017/jjmDB', {
     console.log("Error: No connection!");
 });
 
+//import models from models folder
+require("./models/User");
+require("./models/Car");
+const User = mongoose.model('user');
+const Car = mongoose.model('car');
+
+const app = express();
+app.use(cors())
+
 app.use(express.json());
 
 app.use(bodyParser.json());
@@ -34,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 //Index route
 app.get('/', (req, res)=>{
     return res.json({titulo: "Compras e Vendas de Automóveis Usados"});
-})
+});
 
 //route for registe of users
 app.post('/register', (req, res)=>{
@@ -84,7 +89,6 @@ app.get('/login', function (req, res, next) {
 
 //Route auth login
 app.post('/login', (req, res, next)=>{
-	//console.log(req.body.email);
 	User.findOne({email:req.body.email},(err,data)=>{
 		if(data){
             //console.log(data.password);
@@ -111,6 +115,25 @@ app.get('/userslist', (req, res, next)=>{
 				res.send({"Success":"Success!"});	
 			}else{
 				res.send({"Success":"No users!"});
+			}
+		}else{
+			res.send({"Success":"Page not found!"});
+		}
+	});
+});
+
+//Car list route, select all users from database
+app.get('/carslist', (req, res, next)=>{
+	Car.find({},(err,data)=>{
+		if(data){
+            //console.log(data.marca);
+            res.send(data);
+			if(data.length > 0){
+				console.log("Done list cars");
+                //console.log(data);
+				res.send({"Success":"Success!"});
+			}else{
+				res.send({"Success":"No Cars!"});
 			}
 		}else{
 			res.send({"Success":"Page not found!"});

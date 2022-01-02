@@ -8,6 +8,7 @@ import { RegisterService } from 'src/app/resources/services/register/register.se
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
   public requestRegister!: RequestRegister;
