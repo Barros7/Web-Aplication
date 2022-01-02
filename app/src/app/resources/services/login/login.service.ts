@@ -12,7 +12,7 @@ export class LoginService {
   constructor(private httpClient: HttpClient) { }
 
   public doLogin(requestLogin: RequestLogin): Observable<ResponseLogin> {
-    return this.httpClient.post<ResponseLogin>('http://localhost:3000/login/', requestLogin );
+    return this.httpClient.post<ResponseLogin>('http://127.0.0.1:8000/api/login', requestLogin );
     console.log(ResponseLogin)
   }
 }

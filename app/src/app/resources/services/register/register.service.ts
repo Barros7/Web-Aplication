@@ -12,7 +12,7 @@ export class RegisterService {
   constructor(private httpClient: HttpClient) { }
 
   public doRegister(requestRegister: RequestRegister): Observable<ResponseRegister>{
-    return this.httpClient.post<ResponseRegister>('http://localhost:3000/register/', requestRegister);
+    return this.httpClient.post<ResponseRegister>('http://127.0.0.1:8000/api/register', requestRegister);
     console.log(ResponseRegister)
   }
 }

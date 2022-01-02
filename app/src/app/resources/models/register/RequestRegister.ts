@@ -1,5 +1,5 @@
 export class RequestRegister{
-    public fullName!: String;
+    public name!: String;
     public email!: String;
     public password!: String;
 }
