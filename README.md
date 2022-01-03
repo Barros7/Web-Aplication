@@ -2,6 +2,9 @@
 
 ## Aplicação de Gestão de Carros Usados
 
+## Warning!
+Obs: Inside the components folder there are two subfolders (layout and views). In the layout folder contains the application structure (header, aside, content and footer), do not change this structure. In the views folder, contains the views(contents) that will be positioned in each place in the component. 
+
 ### Technologies
 
 #### Front-End
@@ -17,7 +20,3 @@
 * mongodb;
 * nodejs;
 * npm/yarn;
-
-Obs: Dentro da pasta components tem duas subpastas (layout e views). Na pasta layout contém a estrutura da aplicação (header, aside, content e footer), não alterar está estrutura.
-Na pasta views, contém as views(conteúdos) que estarão posicionada em cada lugar no component. 
-
