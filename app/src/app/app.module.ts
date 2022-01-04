@@ -1,3 +1,6 @@
+
+//Ínicio -> importação do Angular Material:
+
 import { NgModule } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
@@ -5,6 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';     // Ícones;
+import {MatButtonModule} from '@angular/material/button';  // Botão
+import {MatTableModule} from '@angular/material/table'; // Tabela;
+import {MatFormFieldModule} from '@angular/material/form-field'; // Formulários;
+
+//Fim-----> importação do Angular Material:
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +26,9 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { RegisterComponent } from './components/views/register/register.component';
 import { AsideComponent } from './components/layout/aside/aside.component';
+import { NavComponent } from './components/layout/nav/nav.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 
 @NgModule({
@@ -31,6 +43,9 @@ import { AsideComponent } from './components/layout/aside/aside.component';
     FilterComponent,
     RegisterComponent,
     AsideComponent,
+    NavComponent,
+    CarrinhoComponent,
+    SobreComponent,
   ],
   imports: [
     CardModule,
@@ -40,6 +55,10 @@ import { AsideComponent } from './components/layout/aside/aside.component';
     AppRoutingModule,
     MatToolbarModule,
     BrowserAnimationsModule,
+    MatIconModule,    // Ícones;
+    MatButtonModule,   // Botão;
+    MatTableModule, // Tabela;
+    MatFormFieldModule // Formulários;
   ],
   providers: [],
   bootstrap: [AppComponent]
