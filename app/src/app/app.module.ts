@@ -1,6 +1,4 @@
 
-//Ínicio -> importação do Angular Material:
-
 import { NgModule } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
@@ -12,8 +10,6 @@ import {MatIconModule} from '@angular/material/icon';     // Ícones;
 import {MatButtonModule} from '@angular/material/button';  // Botão
 import {MatTableModule} from '@angular/material/table'; // Tabela;
 import {MatFormFieldModule} from '@angular/material/form-field'; // Formulários;
-
-//Fim-----> importação do Angular Material:
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,8 +23,8 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { RegisterComponent } from './components/views/register/register.component';
 import { AsideComponent } from './components/layout/aside/aside.component';
 import { NavComponent } from './components/layout/nav/nav.component';
-import { CarrinhoComponent } from './carrinho/carrinho.component';
-import { SobreComponent } from './sobre/sobre.component';
+import { CarrinhoComponent } from './components/views/carrinho/carrinho.component';
+import { SobreComponent } from './components/views/sobre/sobre.component';
 
 
 @NgModule({
