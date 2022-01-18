@@ -1,24 +1,13 @@
-//const session  = require('express-session');  //Include express-session
+const session  = require('express-session');  //Include express-session
 const bodyParser = require('body-parser');      //Include body-parser express
-//const bcrypt   = require('bcryptjs');         //Include bcryptjs
+const bcrypt   = require('bcryptjs');         //Include bcryptjs
 const express    = require('express');          //Include framework express
-//const path     = require('path');   
+const path     = require('path');   
 const cors = require('cors')                          //Include path
 const port       = 3000;                        //Declaration port
-
-//const mongoose = require("./database/database");  //import database connection from database folder
+const connectionDB = require('./database/database');  //invoke database conection
 
 const mongoose   = require('mongoose');         //Include mongoose express
-
-//Database connection
-mongoose.connect('mongodb://127.0.0.1:27017/jjmDB', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(()=>{
-    console.log("Sucess connected!");
-}).catch((error)=>{
-    console.log("Error: No connection!");
-});
 
 //import models from models folder
 require("./models/User");
@@ -27,7 +16,7 @@ const User = mongoose.model('user');
 const Car = mongoose.model('car');
 
 const app = express();
-app.use(cors())
+app.use(cors());
 
 app.use(express.json());
 
@@ -43,6 +32,7 @@ app.get('/', (req, res)=>{
 
 //route for registe of users
 app.post('/register', (req, res)=>{
+    console.log(req.body)
     const user = User.create(req.body, (error)=>{
         if(error) return res.status(400).json({
             error: true,

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+mongoose = require('mongoose');  //invoke database conection
 
 const Car = new mongoose.Schema({
     matricula: {

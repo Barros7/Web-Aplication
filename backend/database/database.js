@@ -1,7 +1,7 @@
-const mongoose   = require('mongoose');         //Include mongoose express
+const mongoose = require("mongoose"); //Include mysql dependence on node modules.
 
 //Database connection
-mongoose.connect('mongodb://127.0.0.1:27017/jjmDB', {
+const database = mongoose.connect('mongodb://127.0.0.1:27017/jjmDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(()=>{
@@ -10,3 +10,4 @@ mongoose.connect('mongodb://127.0.0.1:27017/jjmDB', {
     console.log("Error: No connection!");
 });
 
+module.exports = database;
