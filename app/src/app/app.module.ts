@@ -17,6 +17,8 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { RegisterComponent } from './components/views/register/register.component';
 import { AsideComponent } from './components/layout/aside/aside.component';
+import { EntrecontactoComponent } from './components/views/entrecontacto/entrecontacto.component';
+
 
 
 @NgModule({
@@ -31,6 +33,9 @@ import { AsideComponent } from './components/layout/aside/aside.component';
     FilterComponent,
     RegisterComponent,
     AsideComponent,
+    EntrecontactoComponent,
+
+
   ],
   imports: [
     CardModule,
