@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['buy']);
       },
       (httpError) =>{
-        this.alertService.error(httpError, httpError.error.message);
+        this.alertService.error(httpError, httpError.error.msg);
         console.error(httpError);
       }
     );
