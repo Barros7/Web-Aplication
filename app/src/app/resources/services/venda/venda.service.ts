@@ -12,7 +12,7 @@ export class VendaService {
   constructor(private httpClient: HttpClient) { }
 
   public doVenda(requestVenda: RequestVenda): Observable<ResponseVenda>{
-    return this.httpClient.post<ResponseVenda>('http://localhost:3000/Venda', requestVenda);
+    return this.httpClient.post<ResponseVenda>('http://localhost:3000/car/save', requestVenda);
     console.log(ResponseVenda)
   }
 }

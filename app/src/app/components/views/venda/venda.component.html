@@ -18,17 +18,32 @@
     <input [(ngModel)]="requestVenda.marca" type="marca" class="form-control" id="marca" name="marca" aria-describedby="marca">
   </div>
   <div class="mb-3">
-    <label for="modelo" class="form-label">Marca do Carro</label>
+    <label for="modelo" class="form-label">Modelo do Carro</label>
     <input [(ngModel)]="requestVenda.modelo" type="modelo" class="form-control" id="modelo" name="modelo" aria-describedby="modelo">
   </div>
   <div class="mb-3">
     <label for="combustivel" class="form-label">Combustivel</label>
     <input [(ngModel)]="requestVenda.combustivel" type="combustivel" class="form-control" id="combustivel" name="combustivel" aria-describedby="combustivel">
   </div>
+  <div class="mb-3">
+    <label for="matricula" class="form-label">Matricula</label>
+    <input [(ngModel)]="requestVenda.matricula" type="matricula" class="form-control" id="matricula" name="matricula" aria-describedby="matricula">
+  </div>
+  <div class="mb-3">
+    <label for="tipo" class="form-label">Tipo</label>
+    <input [(ngModel)]="requestVenda.tipo" type="tipo" class="form-control" id="tipo" name="tipo" aria-describedby="tipo">
+  </div>
+  <div class="mb-3">
+    <label for="preco" class="form-label">Preço</label>
+    <input [(ngModel)]="requestVenda.preco" type="preco" class="form-control" id="preco" name="preco" aria-describedby="preco">
+  </div>
+  <div class="mb-3">
+    <label for="ano" class="form-label">Preço</label>
+    <input [(ngModel)]="requestVenda.ano" type="ano" class="form-control" id="ano" name="ano" aria-describedby="ano">
+  </div>
   <br>
-  <button (click)="doRegister()" type="submit" class="btn btn-primary">Register</button>
+  <button (click)="doVenda()" type="submit" class="btn btn-primary">Venda</button>
   <br><br>
-  <a routerLink="/login">Login aqui!!</a>
 </form>
 <br>
 <br>

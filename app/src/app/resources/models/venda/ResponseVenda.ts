@@ -1,3 +1,3 @@
-export class ResponseRegister{
+export class ResponseVenda{
     public jwt!: String;
 }
