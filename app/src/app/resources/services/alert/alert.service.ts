@@ -9,31 +9,31 @@ export class AlertService {
   constructor() { }
 
   public success(
-    message: string, 
+    msg: string, 
     title: string
   ): void {
-    this.showAlert(title, message, 'success');
+    this.showAlert(title, msg, 'success');
   }
 
   public info(
-    message: string, 
+    msg: string, 
     title: string
   ): void {
-    this.showAlert(title, message, 'info');
+    this.showAlert(title, msg, 'info');
   }
 
   public error(
-    message: string, 
+    msg: string, 
     title: string
   ): void {
-    this.showAlert(title, message, 'error');
+    this.showAlert(title, msg, 'error');
   }
 
   private showAlert(
     title: string, 
-    message: string, 
+    msg: string, 
     icon: SweetAlertIcon
   ): void{
-    Swal.fire(title, message, icon);
+    Swal.fire(title, msg, icon);
   }
 }
