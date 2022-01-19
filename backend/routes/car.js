@@ -39,7 +39,7 @@ const Car = require('../models/car');
         try {
             //Registar carro
             await Car.create(car)
-            res.status(201).json({ msg: 'Novo carro registado'})
+            res.status(201).json({ msg: 'Carro vendido com sucesso'})
         }  catch (msg){
             res.status(500).json({ msg: 'Não foi possível registar o carro, erro no servidor!'})
         } 
