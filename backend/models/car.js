@@ -1,29 +1,12 @@
-mongoose = require('mongoose');  //invoke database conection
+const mongoose = require('mongoose');  //invoke database conection
 
-const Car = new mongoose.Schema({
-    matricula: {
-        type: String,
-        require: true,
-    },
-    marca: {
-        type: String,
-        unique: false,
-        required: true,
-        capitalize: true,
-    },
-    modelo: {
-        type: String,
-        required: true,
-    },
-    tipo: {
-        type: String,
-        unique: false,
-        required: true,
-        capitalize: true,
-    }
-},
-{
-    timestamps: true, 
+const Car = mongoose.model('Car', {
+    marca: String,
+    matricula: String,
+    modelo: String,
+    tipo: String,
+    preco: Number,
+    ano: Number
 });
 
-mongoose.model('car', Car);
+module.exports = Car;

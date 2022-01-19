@@ -8,25 +8,23 @@ const path = require('path');
 const cors = require('cors'); //Include path
 const port = 3000; //Declaration port
 const db = require('./database/database'); //invoke database conection
-const { use } = require('express/lib/application');
+const app = express();
 
 //import models from models folder
 const User = require('./models/user');
-const Car = require('./models/car');
-
-const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
-//require('./controllers/authController')(app);
-
 //Index route
 app.get('/', (req, res)=>{
     return res.status(200).json({titulo: "Bem vindo!!!"});
 });
+
+const carRoutes = require('./routes/car');
+app.use('/car', carRoutes)
 
 //Create register of user
 app.post('/auth/register', async (req, res)=>{
@@ -77,7 +75,7 @@ app.post('/auth/register', async (req, res)=>{
 
         res.status(500).json({ msg: 'aconteceu um erro no servidor, tente mais tarde!'});
     }
-})
+});
 
 //login of user
 app.post('/auth/login', async (req, res)=>{
@@ -156,71 +154,6 @@ function checkToken (req, res, next) {
         return res.status(400).json({ msg: 'Token inválido' });
     }
 }
-
-//route for registe of cars
-app.post('/registercars', (req, res)=>{
-    const car = Car.create(req.body, (error)=>{
-        if(error) return res.status(400).json({
-            error: true,
-            message: "Car no registed!"
-        });
-        return res.status(200).json({
-            error: false,
-            message: "Car registed!"
-        });
-    });
-});
-
-app.delete('/deletecars', (req, res)=>{
-    const car = Car.deleteMany(req.body, (error)=>{
-        if(error) return res.status(400).json({
-            error: true,
-            message: "Car no del!"
-        });
-        return res.status(200).json({
-            error: false,
-            message: "Car del!"
-        });
-    });
-});
-
-
-//User list route, select all users from database
-app.get('/userslist', (req, res, next)=>{
-	User.find({},(err,data)=>{
-		if(data){
-            //console.log(data);
-            res.send(data);
-			if(data.length > 0){
-				console.log("Done Login");
-				res.send({"Success":"Success!"});	
-			}else{
-				res.send({"Success":"No users!"});
-			}
-		}else{
-			res.send({"Success":"Page not found!"});
-		}
-	});
-});
-
-//Car list route, select all users from database
-app.get('/carslist', (req, res, next)=>{
-	Car.find({},(err,data)=>{
-		if(data){
-            //console.log(data.marca);
-            res.send(data);
-			if(data.length > 0){
-				console.log("Done list cars");
-                //console.log(data);
-				res.send({"Success":"Success!"});
-			}else{
-				res.send({"Success":"No Cars!"});
-			}
-		}else{
-			res.send({"Success":"Page not found!"});
-		}
-	});
-});
 
 //App in running...
 app.listen(port, () => {
