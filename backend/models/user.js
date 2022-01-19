@@ -1,24 +1,9 @@
-mongoose = require('mongoose');  //invoke database conection
+const mongoose = require('mongoose');  //invoke database conection
 
-const User = new mongoose.Schema({
-    name: {
-        type: String,
-        require: true,
-    },
-    email: {
-        type: String,
-        unique: true,
-        required: true,
-        lowercase: true,
-    },
-    password: {
-        type: String,
-        required: true,
-        select: false,
-    }
-},
-{
-    timestamps: true, 
+const User = mongoose.model('User', {
+    username: String,
+    email: String,
+    password: String
 });
 
-mongoose.model('user', User);
+module.exports = User;

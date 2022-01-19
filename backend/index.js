@@ -1,25 +1,23 @@
-const session  = require('express-session');  //Include express-session
-const bodyParser = require('body-parser');      //Include body-parser express
-const bcrypt   = require('bcryptjs');         //Include bcryptjs
-const express    = require('express');          //Include framework express
-const path     = require('path');   
-const cors = require('cors')                          //Include path
-const port       = 3000;                        //Declaration port
-const connectionDB = require('./database/database');  //invoke database conection
-
-const mongoose   = require('mongoose');         //Include mongoose express
+const express = require('express'); //Include framework express
+const bodyParser = require('body-parser'); //Include body-parser express
+const session = require('express-session'); //Include express-session
+const mongoose   = require('mongoose'); //Include mongoose express
+const bcrypt = require('bcryptjs'); //Include bcryptjs
+const jwt = require('jsonwebtoken'); //Include jsonwebtoken
+const path = require('path');
+const cors = require('cors'); //Include path
+const port = 3000; //Declaration port
+const db = require('./database/database'); //invoke database conection
+const { use } = require('express/lib/application');
 
 //import models from models folder
-require("./models/User");
-require("./models/Car");
-const User = mongoose.model('user');
-const Car = mongoose.model('car');
+const User = require('./models/user');
+const Car = require('./models/car');
 
 const app = express();
+
 app.use(cors());
-
 app.use(express.json());
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
@@ -27,23 +25,80 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 //Index route
 app.get('/', (req, res)=>{
-    return res.json({titulo: "Compras e Vendas de Automóveis Usados"});
+    return res.status(200).json({titulo: "Bem vindo!!!"});
 });
 
-//route for registe of users
-app.post('/register', (req, res)=>{
-    console.log(req.body)
-    const user = User.create(req.body, (error)=>{
-        if(error) return res.status(400).json({
-            error: true,
-            message: "User no registed!"
-        });
-        return res.status(200).json({
-            error: false,
-            message: "User registed!"
-        });
+//Create register of user
+app.post('/auth/register', async (req, res)=>{
+    const { username, email, password, confirmpassword } = req.body
+        //console.log(req.body)
+
+    // validations
+    if(!username) {
+        return res.status(422).json({ msg: 'O nome é obrigatório' });
+    }
+
+    else if(!email) {
+        return res.status(422).json({ msg: 'O email é obrigatório' });
+    }
+
+    else if(!password) {
+        return res.status(422).json({ msg: 'A password é obrigatório' });
+    }
+
+    else if (password !== confirmpassword){
+        return res.status(422).json({ msg: 'As senhas são diferentes!' });
+    }
+
+    //check emails
+    const userExists = await User.findOne({ email: email });
+
+    if (userExists) {
+        return res.status(422).json({ msg: 'Por favor, utilize outro e-mail' });
+    }
+
+    //create password
+    const salt = await bcrypt.genSalt(12);
+    const passwordHash = await bcrypt.hash(password, salt);
+
+    //create user
+    const user = new User({
+        username,
+        email, 
+        password: passwordHash
     });
-});
+
+    try {
+        await user.save()
+        res.status(201).json({ msg: 'Usuário registado com sucesso!' })
+
+    } catch (error) {
+        console.log(error)
+
+        res.status(500).json({ msg: 'aconteceu um erro no servidor, tente mais tarde!'});
+    }
+})
+
+//login of user
+app.post('/auth/login', async (req, res)=>{
+    const { email, password } = req.body
+
+    //validation
+    if (!email) {
+        return res.status(422).json({ msg: 'Por favor, utilize outro e-mail' });
+    }
+    else if (!password) {
+        return res.status(422).json({ msg: 'A senha é obrigatória!' });
+    }
+
+    //check users
+    const user = await User.findOne({ email: email });
+
+    if (!user) { 
+        return res.status(422).json({ msg: 'Utilizador não encontrado!' });
+    }
+    
+})
 
 //route for registe of cars
 app.post('/registercars', (req, res)=>{
@@ -72,27 +127,6 @@ app.delete('/deletecars', (req, res)=>{
     });
 });
 
-//Route login
-app.get('/login', function (req, res, next) {
-	return res.send('index');
-});
-
-//Route auth login
-app.post('/login', (req, res, next)=>{
-	User.findOne({email:req.body.email},(err,data)=>{
-		if(data){
-            //console.log(data.password);
-			if(data.email==req.body.email){
-				console.log("Done Login");
-				res.send({"Success":"Success!"});
-			}else{
-				res.send({"Success":"Wrong password!"});
-			}
-		}else{
-			res.send({"Success":"This Email Is not regestered!"});
-		}
-	});
-});
 
 //User list route, select all users from database
 app.get('/userslist', (req, res, next)=>{
