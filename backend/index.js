@@ -12,6 +12,8 @@ const app = express();
 
 //import models from models folder
 const User = require('./models/user');
+const Car = require('./models/car');
+
 
 app.use(cors());
 app.use(express.json());

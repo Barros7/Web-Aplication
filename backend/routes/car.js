@@ -85,14 +85,7 @@ const Car = require('../models/car');
 
         const { marca, matricula, modelo, tipo, preco, ano } = req.body
 
-        const car = { 
-            marca, 
-            matricula, 
-            modelo, 
-            tipo, 
-            preco, 
-            ano 
-        }
+        const car = { marca, matricula, modelo, tipo, preco, ano }
 
         try {
             //List car by id

@@ -10,12 +10,12 @@ import { FilterComponent } from './components/views/filter/filter.component';
 import { RegisterComponent } from './components/views/register/register.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent },
   { path: 'sobre', component: SobreComponent},
   { path: 'buy', component: BuyComponent },
   { path: 'filter', component: FilterComponent },
   { path: 'venda', component: VendaComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'Home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
 ];
 
