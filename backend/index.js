@@ -31,7 +31,7 @@ app.get('/', (req, res)=>{
 //Create register of user
 app.post('/auth/register', async (req, res)=>{
     const { username, email, password, confirmpassword } = req.body
-        //console.log(req.body)
+        //console.log(username, email)
 
     // validations
     if(!username) {
@@ -156,10 +156,6 @@ function checkToken (req, res, next) {
         return res.status(400).json({ msg: 'Token inválido' });
     }
 }
-
-
-
-
 
 //route for registe of cars
 app.post('/registercars', (req, res)=>{
