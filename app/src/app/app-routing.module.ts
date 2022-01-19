@@ -8,15 +8,17 @@ import { LoginComponent } from './components/views/login/login.component';
 import { VendaComponent } from './components/views/venda/venda.component';
 import { FilterComponent } from './components/views/filter/filter.component';
 import { RegisterComponent } from './components/views/register/register.component';
+import { EntrecontactoComponent } from './components/views/entrecontacto/entrecontacto.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent },
   { path: 'sobre', component: SobreComponent},
   { path: 'buy', component: BuyComponent },
   { path: 'filter', component: FilterComponent },
   { path: 'venda', component: VendaComponent },
   { path: 'Home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'contato', component: EntrecontactoComponent },
 ];
 
 @NgModule({

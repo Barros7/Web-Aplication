@@ -25,6 +25,7 @@ import { AsideComponent } from './components/layout/aside/aside.component';
 import { NavComponent } from './components/layout/nav/nav.component';
 import { CarrinhoComponent } from './components/views/carrinho/carrinho.component';
 import { SobreComponent } from './components/views/sobre/sobre.component';
+import { EntrecontactoComponent } from './components/views/entrecontacto/entrecontacto.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SobreComponent } from './components/views/sobre/sobre.component';
     NavComponent,
     CarrinhoComponent,
     SobreComponent,
+    EntrecontactoComponent
   ],
   imports: [
     CardModule,
