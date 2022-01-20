@@ -1,7 +1,7 @@
 export class RequestVenda{
     public username!: String;
-    public email!: String;
     public telefone!: String;
+    public email!: String;
     public marca!: String; 
     public matricula!: String; 
     public modelo!: String; 
