@@ -1,0 +1,13 @@
+.container{
+    background-color: rgba(12, 10, 10, 10);
+    border-radius: 10px;
+    color: white;
+    margin-top: 10%;
+    padding: 5% 2% 1% 2%;
+    width: 30%;
+}
+
+.btn{
+    margin: 0 25%;
+    width: 50%;
+}

@@ -1,0 +1,54 @@
+<form class="container">
+  <div class="mb-3">
+    <label for="name" class="form-label">Nome Vendedor</label>
+    <input [(ngModel)]="requestVenda.username" type="text" class="form-control" id="username" name="username" aria-describedby="username">
+    <div id="name" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="telefone" class="form-label">Telefone</label>
+    <input [(ngModel)]="requestVenda.telefone" type="tel" class="form-control" id="telefone" name="telefone" aria-describedby="telefone">
+    <div id="telefone" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input [(ngModel)]="requestVenda.email" type="email" class="form-control" id="email" name="email" aria-describedby="email">
+    <div id="email" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="marca" class="form-label">Marca</label>
+    <input [(ngModel)]="requestVenda.marca" type="text" class="form-control" id="marca" name="marca" aria-describedby="marca">
+    <div id="marca" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="matricula" class="form-label">Matricula</label>
+    <input [(ngModel)]="requestVenda.matricula" type="text" class="form-control" id="matricula" name="matricula" aria-describedby="matricula">
+  </div>
+  <div class="mb-3">
+    <label for="modelo" class="form-label">Modelo do Carro</label>
+    <input [(ngModel)]="requestVenda.modelo" type="text" class="form-control" id="modelo" name="modelo" aria-describedby="modelo">
+  </div>
+  <div class="mb-3">
+    <label for="tipo" class="form-label">Tipo</label>
+    <input [(ngModel)]="requestVenda.tipo" type="text" class="form-control" id="tipo" name="tipo" aria-describedby="tipo">
+  </div>
+  <div class="mb-3">
+    <label for="preco" class="form-label">Preço</label>
+    <input [(ngModel)]="requestVenda.preco" type="number" class="form-control" id="preco" name="preco" aria-describedby="preco">
+  </div>
+  <div class="mb-3">
+    <label for="ano" class="form-label">Ano</label>
+    <input [(ngModel)]="requestVenda.ano" type="number" class="form-control" id="ano" name="ano" aria-describedby="ano">
+  </div>
+  <div class="mb-3">
+    <label for="combustivel" class="form-label">Combustivel</label>
+    <input [(ngModel)]="requestVenda.combustivel" type="text" class="form-control" id="combustivel" name="combustivel" aria-describedby="combustivel">
+  </div>
+  <br>
+  <button (click)="doVenda()" type="submit" class="btn btn-primary">Venda</button>
+  <br><br>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>

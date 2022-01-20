@@ -1,0 +1,25 @@
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    flex: 0 0 150px;
+  }
+  
+  .conteudo {
+    margin-left: 30px;
+  }
+  
+  
+  .titulo{
+    font-weight: bold;
+    font-size: 2em;
+  }
+  
+  
+  .texto{
+    font-size: 1.5em;
+  }
+  

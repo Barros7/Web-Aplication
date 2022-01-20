@@ -1,0 +1,29 @@
+<form class="container">
+  <div class="mb-3">
+    <label for="name" class="form-label">User Name</label>
+    <input [(ngModel)]="requestRegister.username" type="text" class="form-control" id="username" name="username" aria-describedby="username">
+    <div id="name" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input [(ngModel)]="requestRegister.email" type="email" class="form-control" id="email" name="email" aria-describedby="email">
+    <div id="email" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input [(ngModel)]="requestRegister.password" type="password" class="form-control" id="password" name="password" aria-describedby="password">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Confirma Password</label>
+    <input [(ngModel)]="requestRegister.confirmpassword" type="password" class="form-control" id="confirmpassword" name="confirmpassword" aria-describedby="confirmpassword">
+  </div>
+  <br>
+  <button (click)="doRegister()" type="submit" class="btn btn-primary">Register</button>
+  <br><br>
+  <a routerLink="/login">Login aqui!!</a>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
